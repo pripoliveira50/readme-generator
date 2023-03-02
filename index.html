@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>README.md Generator</title>
+  </head>
+  <body>
+    <h1>README.md Generator</h1>
+
+    <form>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" /><br /><br />
+
+      <label for="description">About this project:</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="5"
+        cols="50"
+      ></textarea
+      ><br /><br />
+
+      <label for="installation">Installation Instructions:</label>
+      <textarea
+        id="installation"
+        name="installation"
+        rows="5"
+        cols="50"
+      ></textarea
+      ><br /><br />
+
+      <label for="usage">Usage Instructions:</label>
+      <textarea id="usage" name="usage" rows="5" cols="50"></textarea
+      ><br /><br />
+
+      <label for="technologies">Technologies:</label>
+      <textarea
+        id="technologies"
+        name="technologies"
+        rows="5"
+        cols="50"
+      ></textarea
+      ><br /><br />
+
+      <label for="license">License:</label>
+      <input type="text" id="license" name="license" /><br /><br />
+
+      <button type="button" onclick="generate()">Generate README.md</button>
+    </form>
+
+    <hr />
+
+    <h2>Generated README.md:</h2>
+    <textarea id="readme" rows="10" cols="80" readonly></textarea><br /><br />
+    <button type="button" onclick="copy()">Copy README.md</button>
+
+    <script>
+      function generate() {
+        let title = document.getElementById("title").value;
+        let description = document.getElementById("description").value;
+        let installation = document.getElementById("installation").value;
+        let usage = document.getElementById("usage").value;
+        let technologies = document.getElementById("technologies").value;
+        let license = document.getElementById("license").value;
+
+        let markdown = `
+# ${title}
+
+${description}
+
+## Installation
+
+${installation}
+
+## Usage
+
+${usage}
+
+## Technologies
+
+${technologies}
+
+## License
+
+This project is licensed under the ${license} license.
+
+`;
+
+        document.getElementById("readme").value = markdown;
+      }
+
+      function copy() {
+        let readme = document.getElementById("readme");
+        readme.select();
+        document.execCommand("copy");
+        alert("README.md copied to clipboard!");
+      }
+    </script>
+  </body>
+</html>
