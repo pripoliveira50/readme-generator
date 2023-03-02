@@ -20,5 +20,5 @@ This project is licensed under the MIT license.
 ## Interface
 
 <p align="center">
-<img src="/.github/assets/readme.gif" width="320"/>
+<img src="/.github/assets/readme.gif" width="1000"/>
 </p>
